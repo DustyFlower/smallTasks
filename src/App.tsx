@@ -15,20 +15,20 @@ function App() {
 
     let [a, setA] = useState(1)
 
-/*    const onClickHandler = () => {
+    const onClickHandler = () => {
         setA(++a);
         console.log(a)
     }
 
     const ReturnToZero = () => {
         setA(a = 0);
-    }*/
+    }
 
     return (
         <div className="App">
-{/*            <h1>{a}</h1>
+            <h1>{a}</h1>
             <button onClick={onClickHandler}>number</button>
-            <button onClick={ReturnToZero}>0</button>*/}
+            <button onClick={ReturnToZero}>0</button>
             <Button name={'MyYouTubeChanel-1'} callBack={() => Button1Foo("I'm Vasya", 21, 'live in Minsk')}/>
             <Button name={'MyYouTubeChanel-2'} callBack={() => Button2Foo("I'm Ivan")}/>
             <Button name={'Stupid button'} callBack={Button3Foo}/>
