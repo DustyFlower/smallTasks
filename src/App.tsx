@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Button} from "./components/Button";
-import {KeyObject} from "crypto";
 import {NewComponent} from "./components/NewComponent";
 
 export type FilterType = 'all' | 'dollar' | 'ruble'
