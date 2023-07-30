@@ -36,6 +36,7 @@ function App() {
     return (
         <>
             <NewComponent money={money} onClickFilterHandler={onClickFilterHandler} currentMoney={currentMoney}/>
+            <div>Dev branch commit 1</div>
  {/*           <ul>
                 {currentMoney.map((objFromMoneyArr, index) => {
                     return (
