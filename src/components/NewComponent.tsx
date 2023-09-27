@@ -1,19 +1,19 @@
-import React from "react";
-import {FilterType} from "../App";
+import React from 'react';
+import {FilterType} from '../App';
 
-
-type MoneyItem = {
-    banknote: string;
-    nominal: number;
-    number: string;
+type MoneyType = {
+    banknote: string
+    nominal: number
+    number: string
 }
 
-type NewComponentProps = {
-    money: MoneyItem[];
-    onClickFilterHandler: (nameButton: FilterType) => void;
-    currentMoney: MoneyItem[];
+type NewComponentType = {
+    money: MoneyType[]
+    onClickFilterHandler: (nameButton: FilterType) => void
+    currentMoney: MoneyType[]
 }
-export const NewComponent = ({money, onClickFilterHandler, currentMoney}: NewComponentProps) => {
+
+export const NewComponent = ({money, onClickFilterHandler, currentMoney}: NewComponentType) => {
     return (
         <>
             <ul>
@@ -33,5 +33,5 @@ export const NewComponent = ({money, onClickFilterHandler, currentMoney}: NewCom
                 <button onClick={() => onClickFilterHandler('dollar')}>dollars</button>
             </div>
         </>
-    );
-};
+    )
+}
