@@ -1,46 +1,136 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Button} from './components/Button';
-import {NewComponent} from './components/NewComponent';
+import {Todolist} from './Todolist';
 
-/*import {NewComponent} from "./components/NewComponent";*/
+export type FilterValuesType = 'all' | 'active' | 'completed' | 'three tasks';
 
-export type FilterType = 'all' | 'ruble' | 'dollar'
+//Hi guys!
+//3. Relocate everything associated with  filters to the Todolist.tsx component. Make it work
+//
+// let [filter, setFilter] = useState<FilterValuesType>("all");
+//
+// let tasksForTodolist = tasks;
+//
+// if (filter === "active") {
+//     tasksForTodolist = tasks.filter(t => t.isDone === false);
+// }
+// if (filter === "completed") {
+//     tasksForTodolist = tasks.filter(t => t.isDone === true);
+// }
+//
+// function changeFilter(value: FilterValuesType) {
+//     setFilter(value);
+// }
 
 function App() {
 
-    const [money, setMoney] = useState([
-        {banknote: 'dollar', nominal: 100, number: 'a123456789'},
-        {banknote: 'dollar', nominal: 50, number: 'b123456789'},
-        {banknote: 'ruble', nominal: 100, number: 'c123456789'},
-        {banknote: 'dollar', nominal: 100, number: 'd123456789'},
-        {banknote: 'dollar', nominal: 50, number: 'e123456789'},
-        {banknote: 'ruble', nominal: 100, number: 'f123456789'},
-        {banknote: 'dollar', nominal: 50, number: 'j123456789'},
-        {banknote: 'ruble', nominal: 50, number: 'h123456789'}
-    ])
+let [tasks, setTasks] = useState([
+        {id: 1, title: 'HTML&CSS', isDone: true},
+        {id: 2, title: 'JS', isDone: true},
+        {id: 3, title: 'ReactJS', isDone: false},
+        {id: 4, title: 'Rest API', isDone: false},
+        {id: 5, title: 'GraphQL', isDone: false},
+    ]);
 
-    const [filter, setFilter] = useState<FilterType>('all')
-
-    let currentMoney = money;
-
-    if (filter === 'ruble') {
-        currentMoney = money.filter((filteredMoney) =>
-            filteredMoney.banknote === 'ruble');
+    function removeTask(id: number) {
+        let filteredTasks = tasks.filter(t => t.id != id);
+        setTasks(filteredTasks);
     }
-    if (filter === 'dollar') {
-        currentMoney = money.filter((filteredMoney) =>
-            filteredMoney.banknote === 'dollar');
 
+    const removeAllTasks = () => {
+        setTasks(tasks = [])
     }
-    const onClickFilterHandler = (nameButton: FilterType) => {
-        setFilter(nameButton)
+
+/*
+    let [filter, setFilter] = useState<FilterValuesType>('all');
+
+    let tasksForTodolist = tasks;
+
+    if (filter === 'active') {
+        tasksForTodolist = tasks.filter(t => t.isDone === false);
     }
+    if (filter === 'completed') {
+        tasksForTodolist = tasks.filter(t => t.isDone === true);
+    }
+    if (filter === 'three tasks') {
+        tasksForTodolist = tasks.slice(0, 3);
+    }
+
+    function changeFilter(value: FilterValuesType) {
+        setFilter(value);
+    }
+*/
 
     return (
-        <>
-            <NewComponent currentMoney={currentMoney} onClickFilterHandler={onClickFilterHandler}/>
-        </>
-    )
+        <div className="App">
+            <Todolist title="What to learn"
+                      tasks={tasks}
+                      removeTask={removeTask}
+/*                      changeFilter={changeFilter}*/
+                      removeAllTasks={removeAllTasks}
+            />
+        </div>
+    );
 }
+
 export default App;
+
+
+//-------------------------------------------------------------------------
+
+// import React, {useState} from 'react';
+// import './App.css';
+// import {Todolist} from './Todolist';
+//
+//
+// export type FilterValuesType = "all" | "active" | "completed" | "three";
+//
+// function App() {
+//
+//     let [tasks, setTasks] = useState([
+//         {id: 1, title: "HTML&CSS", isDone: true},
+//         {id: 2, title: "JS", isDone: true},
+//         {id: 3, title: "ReactJS", isDone: false},
+//         {id: 4, title: "Rest API", isDone: false},
+//         {id: 5, title: "GraphQL", isDone: false},
+//     ]);
+//
+//     const deleteAllTasks = () => {
+//         setTasks([])
+//     }
+//
+//     function removeTask(id: number) {
+//         let filteredTasks = tasks.filter(t => t.id != id);
+//         setTasks(filteredTasks);
+//     }
+//
+//     // let [filter, setFilter] = useState<FilterValuesType>("all");
+//     //
+//     // let tasksForTodolist = tasks;
+//     //
+//     // if (filter === "active") {
+//     //     tasksForTodolist = tasks.filter(t => t.isDone === false);
+//     // }
+//     // if (filter === "completed") {
+//     //     tasksForTodolist = tasks.filter(t => t.isDone === true);
+//     // }
+//     //
+//     // function changeFilter(value: FilterValuesType) {
+//     //     setFilter(value);
+//     // }
+//
+//     return (
+//         <div className="App">
+//             <Todolist
+//                 title="What to learn"
+//                 tasks={tasks}
+//                 removeTask={removeTask}
+//                 //changeFilter={changeFilter}
+//                 deleteAllTasks={deleteAllTasks}
+//
+//             />
+//         </div>
+//     );
+// }
+//
+//export default App;
