@@ -4,10 +4,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createRoot } from 'react-dom/client';
 import {Filter} from './Filter';
+import AppForInputAndButton from './AppForInputAndButton'
 
 const container  = document.getElementById('root') as HTMLElement
 const root = createRoot(container);
-root.render(<Filter />);
+root.render(<AppForInputAndButton />);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

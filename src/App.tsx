@@ -41,8 +41,6 @@ function App() {
         setFilter(value);
     }
 
-
-
     return (
         <div className="App">
             <Todolist title="What to learn"
